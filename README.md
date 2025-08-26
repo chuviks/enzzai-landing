@@ -1,3 +1,5 @@
+В данный момент результат проекта можно посмотреть на Netlify по адресу: https://astonishing-kitten-5db016.netlify.app
+
 # Enzzai Landing
 
 Landing-страница на **Vite + React + Tailwind**.
