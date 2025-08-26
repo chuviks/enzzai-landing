@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/* === Шрифты === */
+@theme {
+    --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans";
+    --font-display: "Unbounded", system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans";
+}
+
+/* кастомные классы для удобства */
+.font-display {
+    font-family: var(--font-display), sans-serif;
+}
+
+.body-font {
+    font-family: var(--font-sans), sans-serif;
+}
+
+/* глобально задаю фон и шрифт */
+html, body, #root {
+    width: 100%;
+    min-height: 100%;
+    font-family: var(--font-sans), sans-serif !important;
+}
+
+body, #root {
+    overflow-x: hidden;
+    background: #0b0f17; /* тёмный фон страницы */
+}
+
+/* ссылки и кнопки */
+a:hover {
+    color: #535bf2;
+}
+
+button:hover {
+    border-color: #646cff;
+}
+
+button:focus, button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* простые анимации */
+@keyframes shine {
+    0% {
+        transform: translateX(-120%) rotate(12deg)
+    }
+
+    100% {
+        transform: translateX(220%) rotate(12deg)
+    }
+}
+
+@keyframes floatY {
+    0%,100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-12px)
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0)
+    }
+
+    100% {
+        transform: translateX(-50%)
+    }
+}
+
+/* тени и фоновые текстуры */
+.emote {
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
+    opacity: .9;
+}
+
+.bg-grid {
+    background-image: radial-gradient(rgba(255,255,255,.12) 1px, transparent 1px);
+    background-size: 26px 26px;
+}
+
+.bg-noise {
+    /* шум для фона, SVG в base64 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    opacity: .5;
+    pointer-events: none;
+}
+
+/* мелкие квадратики-конфетти */
+.confetti {
+    position: fixed;
+    width: 9px;
+    height: 9px;
+    border-radius: 9999px;
+    pointer-events: none;
+}
+
+/* свой курсор (отключаю системный на десктопе) */
+@media (min-width: 768px) {
+    body {
+        cursor: none;
+    }
+}
+
+.cursor-spotlight {
+    position: fixed;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle at center, rgba(168,85,247,.18), rgba(236,72,153,.12) 40%, transparent 60%);
+    filter: blur(22px);
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(255,255,255,.7);
+    border-radius: 9999px;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 20px rgba(168,85,247,.35);
+    transition: transform .12s ease, opacity .2s ease;
+    pointer-events: none;
+}
+
+.cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(255,255,255,.6);
+    transition: transform .1s ease;
+    pointer-events: none;
+}
+
+/* пометка для js, чтобы курсор менялся */
+.cursor-hover {
+    cursor: none;
+}
